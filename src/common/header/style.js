@@ -121,8 +121,21 @@ export const SearchInfoSwitch = styled.span`
     float: right;
 `;
 
+export const SearchInfoList = styled.ul`
+    overflow: hidden;
+    margin-bottom: 10px;
+`;
+
 export const SearchInfoItem = styled.li`
-    
+    font-size: 12px;
+    padding: 0 5px;
+    line-height: 20px;
+    color: #969696;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
 `;
 
 export const Addition = styled.div`
