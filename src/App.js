@@ -4,6 +4,10 @@ import GlobalFontStyle from './statics/iconfont/iconfont';
 import Header from './common/header/index';
 import store from './store/index';
 import { Provider } from 'react-redux';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Home from './pages/home'
+import Detail from './pages/detail'
+import Login from './pages/login'
 
 class App extends Component {
   render() {
@@ -11,7 +15,15 @@ class App extends Component {
       <Provider store={store}>
         <GlobalStyle />
         <GlobalFontStyle />
-        <Header />
+        <BrowserRouter>
+        ​<Switch>
+          <Route exact path="/login" render={null}/>
+          <Route component={Header}/>
+        </Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/detail/:id" exact component={Detail} />
+          <Route path="/login" exact component={Login} />
+        </BrowserRouter>
       </Provider>
     );
   }

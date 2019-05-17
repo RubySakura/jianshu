@@ -3,13 +3,17 @@ import { HeaderWrapper, Logo, Nav, NavItem, NavSearch, Addition, Button, SearchW
 import { CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux';
 import  { actionCreators }  from './store/';
+import { Link } from 'react-router-dom';
 
 class Header extends Component {
     render() {
-        const { focused, handleInputFocus, handleInputBlur } = this.props;
+        const { focused, handleInputFocus, handleInputBlur, list } = this.props;
         return (
             <HeaderWrapper>
-                <Logo href='/' />
+                <Link to="/">
+                    <Logo />
+                </Link>
+                
                 <Nav>
                     <NavItem className="left active">首页</NavItem>
                     <NavItem className="left">下载APP</NavItem>
@@ -21,7 +25,7 @@ class Header extends Component {
                             in={focused}
                             classNames="slide"
                         >
-                            <NavSearch className={focused ? 'focused' : ''} onFocus={handleInputFocus} onBlur={handleInputBlur}></NavSearch>
+                            <NavSearch className={focused ? 'focused' : ''} onFocus={() => {handleInputFocus(list)}} onBlur={handleInputBlur}></NavSearch>
                         </CSSTransition>
                         <i className={focused ? 'focused iconfont' : 'iconfont'}>&#xe609;</i>
                         {this.getSearchListArea()}
@@ -51,7 +55,9 @@ class Header extends Component {
                 <SearchInfo onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                     <SearchInfoTitle>
                         热门搜索
-                        <SearchInfoSwitch onClick={() => {handleChangePage(page, totalPage)}}>换一批</SearchInfoSwitch>
+                        <SearchInfoSwitch onClick={() => {handleChangePage(page, totalPage, this.spinRef)}}>
+                            <i className="iconfont spin" ref={(spinRef) => {this.spinRef = spinRef}}>&#xe606;</i> 换一批
+                        </SearchInfoSwitch>
                     </SearchInfoTitle>
                     <SearchInfoList>
                         {pageList.map(function(item) {
@@ -78,8 +84,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        handleInputFocus() {
-            dispatch(actionCreators.getSearchList());
+        handleInputFocus(list) {
+            if(list.size === 0) {
+                dispatch(actionCreators.getSearchList());
+            }
             dispatch(actionCreators.searchFocus());
         },
         handleInputBlur() {
@@ -91,7 +99,11 @@ const mapDispatchToProps = (dispatch) => {
         handleMouseLeave() {
             dispatch(actionCreators.mouseLeave());
         },
-        handleChangePage(page, totalPage) {
+        handleChangePage(page, totalPage, spin) {
+            const originAngle = spin.style.transform || "rotate(0deg)";
+            let originAngleNum = parseInt(originAngle.replace(/[^0-9]/ig, ''), 10);
+            originAngleNum += 360;
+            spin.style.transform = "rotate(" + originAngleNum + "deg)";
             if(page < totalPage - 1) {
                 page += 1;
             } else {

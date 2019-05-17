@@ -1,0 +1,37 @@
+{
+    "success": true,
+    "data": {
+        "topicList": [
+            {
+                "id": 1,
+                "title": "社会热点"
+            },{
+                "id": 2,
+                "title": "手绘"
+            }
+        ],
+        "articleList": [
+            {
+                "id": 1,
+                "title": "1原来PPT切换可以这么高端",
+                "desc": "听说有部叫《东宫》的电视剧，在转场时使用了PPT似的切换效果，因此上了热搜。 仔细一看，还蛮像的哦~我来做两页模仿一下。 尽管被动上了热搜，但是...",
+                "imgURL": "https://upload-images.jianshu.io/upload_images/10882664-bf3e9c70ec1f6fad?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240"
+            },{
+                "id": 2,
+                "title": "2原来PPT切换可以这么高端",
+                "desc": "听说有部叫《东宫》的电视剧，在转场时使用了PPT似的切换效果，因此上了热搜。 仔细一看，还蛮像的哦~我来做两页模仿一下。 尽管被动上了热搜，但是...",
+                "imgURL": "https://upload-images.jianshu.io/upload_images/10882664-bf3e9c70ec1f6fad?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240"
+            },{
+                "id": 3,
+                "title": "3原来PPT切换可以这么高端",
+                "desc": "听说有部叫《东宫》的电视剧，在转场时使用了PPT似的切换效果，因此上了热搜。 仔细一看，还蛮像的哦~我来做两页模仿一下。 尽管被动上了热搜，但是...",
+                "imgURL": "https://upload-images.jianshu.io/upload_images/10882664-bf3e9c70ec1f6fad?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240"
+            },{
+                "id": 4,
+                "title": "4原来PPT切换可以这么高端",
+                "desc": "听说有部叫《东宫》的电视剧，在转场时使用了PPT似的切换效果，因此上了热搜。 仔细一看，还蛮像的哦~我来做两页模仿一下。 尽管被动上了热搜，但是...",
+                "imgURL": "https://upload-images.jianshu.io/upload_images/10882664-bf3e9c70ec1f6fad?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240"
+            }
+        ]
+    }
+}
